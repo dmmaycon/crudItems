@@ -18066,8 +18066,8 @@ __webpack_require__(/*! ../../node_modules/bootstrap/dist/js/bootstrap.bundle.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/dmmaycon/Projects/php/laravel/crudItems/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/dmmaycon/Projects/php/laravel/crudItems/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/dmmaycon/projects/php/laravel/crudItems/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/dmmaycon/projects/php/laravel/crudItems/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

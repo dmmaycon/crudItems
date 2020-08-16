@@ -11,22 +11,18 @@
 
      <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Fonts -->
-    <link href="{{ asset('fonts/vendor/font-awesome/fontawesome-webfont.ttf') }}" rel="stylesheet">
 </head>
 <body>
-
-
-
     <div class="container">
         <div class="row">
             <h3>@yield('title')</h3>
         </div>
+        <div class="row">
+            @include('layouts.session')
+        </div>
         <hr>
         @yield('content')
     </div>
-
-
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

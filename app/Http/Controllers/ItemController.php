@@ -14,7 +14,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('item.index');
+        $itens = Item::all();
+        return view('item.index', compact('itens'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('item.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->image->store('public');
+        }
+
+        if (Item::create($data)) {
+            return redirect()->route('item.index')
+                             ->with('success', 'Item cadastrado com sucesso!');
+        }
+        return redirect()->route('item.index')
+                             ->with('error', 'Erro ao cadastrar um novo item');
     }
 
     /**
@@ -46,7 +58,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('item.show', compact('item'));
     }
 
     /**
@@ -57,7 +69,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('item.edit', compact('item'));
     }
 
     /**
@@ -69,7 +81,18 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->image->store('public');
+        }
+
+        if ($item->update($data)) {
+            return redirect()->route('item.index')
+                             ->with('success', 'Item alterado com sucesso!');
+        }
+        return redirect()->route('item.index')
+                             ->with('error', 'Erro ao alterar o item');
     }
 
     /**
@@ -80,6 +103,11 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        if ($item->delete()) {
+            return redirect()->route('item.index')
+                             ->with('success', 'Item excluido com sucesso!');
+        }
+        return redirect()->route('item.index')
+                             ->with('error', 'Erro ao excluir o item');
     }
 }
