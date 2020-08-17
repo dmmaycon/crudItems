@@ -21,11 +21,13 @@ Executar os seguintes passos com o zip
 - Entre na pasta do zip
 - Rodar o npm run dev
 - Rodar o composer update
+- Rodar o artisan storage:link
 
 Caso for clonar o repositorio completo, execute os seguintes passos: 
 - Criar um o arquivo database/database.sqlite
 - Rodar o npm run dev
 - Rodar o composer update
 - Rodar a migration
+- Rodar o artisan storage:link
 
 
